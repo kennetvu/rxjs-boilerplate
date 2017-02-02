@@ -17,7 +17,7 @@ const fiveSeconds$ = Rx.Observable.create((observer) => {
     observer.next(3);
     observer.complete();
   }, 3000);
-});
+}).filter(val=>val%2==0);
 
 
 
@@ -26,7 +26,23 @@ const fiveSeconds$ = Rx.Observable.create((observer) => {
 fiveSeconds$.subscribe({
   next: (val) => {
     console.log(val);
-    app.innerHTML += val + '<br />';
+     app.innerHTML += `observer 1 ${val} <br />`;
+  },
+  err: () => {
+
+  },
+  complete: () => {
+    const complete = 'COMPLETE!!!';
+    app.innerHTML += `${complete}`;
+  }
+});
+
+
+
+fiveSeconds$.subscribe({
+  next: (val) => {
+    console.log(val);
+    app.innerHTML += `observer 2 ${val} <br />`;
   },
   err: () => {
 
