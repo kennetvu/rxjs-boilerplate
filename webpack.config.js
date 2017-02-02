@@ -16,7 +16,10 @@ const conf = {
     compress: true,
     port: 3000
   },
-  plugins: [new HtmlWebpackPlugin()]
+  plugins: [new HtmlWebpackPlugin({
+    title: 'RxJS - Webchapter',
+    filename: 'src/index.html'
+  })]
 };
 
 module.exports = conf;
