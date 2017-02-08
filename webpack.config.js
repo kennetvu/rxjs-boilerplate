@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const conf = {
@@ -12,13 +13,16 @@ const conf = {
     ]
   },
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
+    contentBase: path.resolve(__dirname, "dist"),
     compress: true,
-    port: 3000
+    port: 3000,
+    stats: 'minimal',
   },
-  plugins: [new HtmlWebpackPlugin({
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
     title: 'RxJS - Webchapter',
-    filename: 'src/index.html'
+    template: 'src/index.html'
   })]
 };
 

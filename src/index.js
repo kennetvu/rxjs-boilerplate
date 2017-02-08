@@ -26,7 +26,7 @@ const fiveSeconds$ = Rx.Observable.create((observer) => {
 fiveSeconds$.subscribe({
   next: (val) => {
     console.log(val);
-     app.innerHTML += `observer 1 ${val} <br />`;
+     app.innerHTML += `${val} <br />`;
   },
   err: () => {
 
@@ -38,19 +38,4 @@ fiveSeconds$.subscribe({
 });
 
 
-
-fiveSeconds$.subscribe({
-  next: (val) => {
-    console.log(val);
-    app.innerHTML += `observer 2 ${val} <br />`;
-  },
-  err: () => {
-
-  },
-  complete: () => {
-    const complete = 'COMPLETE!!!';
-    app.innerHTML += `${complete}`;
-  }
-
-});
 
